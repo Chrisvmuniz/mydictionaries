@@ -5,12 +5,24 @@ phonebook = {'Chris':'555−1111',
              'Joanne':'555−3333'}
 
 
-
 print()
 print('*****  start section 1 - print dictionary ********')
 print()
 
+print(phonebook["Chris"])
 
+name = "Chris"
+if name in phonebook:
+    print(phonebook[name])
+else:
+    print("name does not exist")
+
+
+for nametest, number in phonebook.items():
+    print(nametest + " " + number)
+
+for nametest in phonebook:
+    print(nametest)
 
 
 
@@ -27,7 +39,18 @@ print('*****  start section 2 - search dictionary ********')
 print()
 
 
+"""
+mydictionary = dict{m:8,n:9}
+print(mydictionary)
 
+print("Num of Key value pairs", + str(len))
+
+name = "chris"
+if name in phonebook:
+    print(phonebook[name])
+else:
+    print(f"{name} does not exist in the phonebook")
+"""
 
 
 
@@ -47,7 +70,10 @@ print('*****  start section 3 - edit/append dictionary ********')
 print()
 
 
-
+print(phonebook)
+phonebook["Chris"] = "555-4444"
+phonebook["Joe"] = "555-0123"
+print(phonebook)
 
 
 print()
@@ -56,13 +82,21 @@ print()
 
 
 
-
+name = "Chris"
+if name in phonebook:
+    print(phonebook[name])
+else:
+    print("name does not exist")
 
 
 print()
 print('*****  start section 4 - delete/remove from dictionary ********')
 print()
 
+del phonebook["Chris"]
+print(phonebook)
+del phonebook["Chris"]
+print(phonebook)
 
 
 
@@ -80,7 +114,14 @@ print('*****  start section 5 - iterate through keys, values, items ********')
 print()
 
 
-
+for key in phonebook:
+    print(f"The key is: {key} and the value {phonebook[value]}")
+for value in phonebook.values():
+    print(value)
+for k, v in phonebook.items():
+    print(f"The key is: {k} and the value is {phonebook[v]}")
+for ph_tuple in phonebook.items():
+    print(ph_tuple)
 
 
 
@@ -97,8 +138,11 @@ print('*****  start section 6 - using get and clear ********')
 print()
 
 
-
-
+name = "chris"
+phone = phonebook.get(name, "key not found")
+print(phone)
+phonebook.clear()
+print(phonebook)
 
 
 print()
@@ -111,10 +155,9 @@ print()
 print('*****  start section 7 - using pop method ********')
 print()
 
-
-
-
-
+remove = phonebook.pop("Chris", "not found")
+print(remove)
+print(phonebook)
 
 print()
 print('*****  end section 7 ********')
@@ -128,6 +171,8 @@ print()
 
 
 
+a = phonebook.popitem()
+print(a)
 
 
 
@@ -141,9 +186,15 @@ print()
 print('*****  start section 9 - using random and converting to list ********')
 print()
 
+a = phonebook.popitem()
+print(a)
 
+list_of_keys = list(phonebook)
+random_key = random.choice(list_of_keys)
+print(random_key)
+print(phonebook[random_key]))
 
-
+print(phonebook[random.choice(list(phonebook))])  
 
 print()
 print('*****  end section 9 ********')
